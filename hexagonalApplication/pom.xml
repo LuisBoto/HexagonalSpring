@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>inbound</artifactId>
+	<artifactId>hexagonalApplication</artifactId>
 	<packaging>jar</packaging>
 
-	<name>inbound</name>
-	<description>Inbound dependencies module</description>
+	<name>hexagonalApplication</name>
+	<description>Hexagonal Architecture application</description>
 
 	<parent>
 		<artifactId>hexagonal</artifactId>
@@ -17,26 +17,21 @@
 	</parent>
 
 	<properties>
+
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.luisboto</groupId>
-			<artifactId>core</artifactId>
+			<artifactId>inbound</artifactId>
 			<version>0.0.1</version>
 		</dependency>
-
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
+			<groupId>com.luisboto</groupId>
+			<artifactId>outbound</artifactId>
+			<version>0.0.1</version>
 		</dependency>
 	</dependencies>
+
 
 </project>
