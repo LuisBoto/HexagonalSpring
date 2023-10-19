@@ -17,7 +17,7 @@
 	</parent>
 
 	<properties>
-
+		<exec.mainClass>com.luisboto.hexagonal.App</exec.mainClass>
 	</properties>
 
 	<dependencies>
