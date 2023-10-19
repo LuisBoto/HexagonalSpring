@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.luisboto.core.service.TariffService;
 
-@RestController()
+@RestController
 @RequestMapping("/api/v1")
 public class TariffController {
 	
