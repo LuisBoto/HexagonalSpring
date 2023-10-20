@@ -18,7 +18,6 @@ public class TariffService {
 	}
 	
 	public Tariff getActiveTariff(String productId, String brandId, LocalDateTime applicationDate) {
-		
 		Tariff result = this.tariffAdapter.findActiveTariffByProductBrandAndDate(productId, brandId, applicationDate);
 		if (result == null)
 			throw new NoActiveTariffFoundException(productId, brandId, applicationDate);
