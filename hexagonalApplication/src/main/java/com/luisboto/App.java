@@ -1,4 +1,4 @@
-package com.luisboto.hexagonal;
+package com.luisboto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
