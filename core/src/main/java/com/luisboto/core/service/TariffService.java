@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
 import com.luisboto.core.adapter.TariffAdapter;
+import com.luisboto.core.exception.NoActiveTariffFoundException;
 import com.luisboto.core.model.Tariff;
 
 @Service
@@ -17,7 +18,11 @@ public class TariffService {
 	}
 	
 	public Tariff getActiveTariff(String productId, String brandId, LocalDateTime applicationDate) {
-		return this.tariffAdapter.findActiveTariffByProductBrandAndDate(productId, brandId, applicationDate);
+		
+		Tariff result = this.tariffAdapter.findActiveTariffByProductBrandAndDate(productId, brandId, applicationDate);
+		if (result == null)
+			throw new NoActiveTariffFoundException(productId, brandId, applicationDate);
+		return result;
 	}
 
 }

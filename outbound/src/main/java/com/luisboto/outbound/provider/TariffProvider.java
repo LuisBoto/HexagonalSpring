@@ -20,8 +20,8 @@ public class TariffProvider implements TariffAdapter {
 
 	@Override
 	public Tariff findActiveTariffByProductBrandAndDate(String productId, String brandId, LocalDateTime applicationDate) {
-		return TariffEntity.toModel(
-				this.tariffRepository.findActiveTariffByProductBrandAndDate(productId, brandId, applicationDate));
+		TariffEntity result = this.tariffRepository.findActiveTariffByProductBrandAndDate(productId, brandId, applicationDate);
+		return result == null ? null : TariffEntity.toModel(result);
 	}
 
 }
