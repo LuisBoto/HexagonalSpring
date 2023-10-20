@@ -1,6 +1,6 @@
 package com.luisboto.core.service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class TariffService {
 		this.tariffAdapter = tariffAdapter;
 	}
 	
-	public Tariff getActiveTariff(String productId, String brandId, Date applicationDate) {
+	public Tariff getActiveTariff(String productId, String brandId, LocalDateTime applicationDate) {
 		return this.tariffAdapter.findActiveTariffByProductBrandAndDate(productId, brandId, applicationDate);
 	}
 

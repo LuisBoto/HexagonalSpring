@@ -1,6 +1,6 @@
 package com.luisboto.outbound.repository;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,12 +11,13 @@ import com.luisboto.outbound.entity.TariffEntity;
 @Repository
 public interface TariffRepository extends JpaRepository<TariffEntity, Long> {
 	
-	@Query("""
-				select 1 t
-			     from TariffEntity t
-			     where t.productId = ?1 AND t.brandId = ?2 AND t.startDate <= ?3 AND t.endDate >= ?3 
-			     order by t.priority DESC
-			""")
-	TariffEntity findActiveTariffByProductBrandAndDate(String productId, String brandId, Date applicationDate);
+	@Query(value = """
+				select *
+			     from prices p
+			     where p.product_id = ?1 AND p.brand_id = ?2 AND p.start_date <= ?3 AND p.end_date >= ?3 
+			     order by p.priority DESC
+			     LIMIT 1
+			""", nativeQuery = true)
+	TariffEntity findActiveTariffByProductBrandAndDate(String productId, String brandId, LocalDateTime applicationDate);
 
 }

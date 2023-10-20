@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import com.luisboto.core.model.Tariff;
 
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -17,29 +18,37 @@ import jakarta.persistence.TemporalType;
 public class TariffEntity {
 
 	@Id
+	@Column
 	private String priceList;
 
 	@Nonnull
+	@Column
 	private String productId;
 
 	@Nonnull
+	@Column
 	private String brandId;
 
 	@Nonnull
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column
 	private LocalDateTime startDate;
 
 	@Nonnull
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column
 	private LocalDateTime endDate;
 
 	@Nonnull
+	@Column
 	private BigDecimal price;
 
 	@Nonnull
+	@Column
 	private String currency;
 
 	@Nonnull
+	@Column
 	private int priority;
 
 	public TariffEntity(String priceList, String productId, String brandId, LocalDateTime startDate, LocalDateTime endDate,

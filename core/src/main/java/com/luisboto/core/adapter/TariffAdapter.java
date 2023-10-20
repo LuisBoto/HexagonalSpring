@@ -1,11 +1,11 @@
 package com.luisboto.core.adapter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import com.luisboto.core.model.Tariff;
 
 public interface TariffAdapter {
 	
-	abstract public Tariff findActiveTariffByProductBrandAndDate(String productId, String brandId, Date applicationDate);
+	abstract public Tariff findActiveTariffByProductBrandAndDate(String productId, String brandId, LocalDateTime applicationDate);
 
 }

@@ -1,6 +1,6 @@
 package com.luisboto.outbound.provider;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
 
@@ -19,7 +19,7 @@ public class TariffProvider implements TariffAdapter {
 	}
 
 	@Override
-	public Tariff findActiveTariffByProductBrandAndDate(String productId, String brandId, Date applicationDate) {
+	public Tariff findActiveTariffByProductBrandAndDate(String productId, String brandId, LocalDateTime applicationDate) {
 		return TariffEntity.toModel(
 				this.tariffRepository.findActiveTariffByProductBrandAndDate(productId, brandId, applicationDate));
 	}
