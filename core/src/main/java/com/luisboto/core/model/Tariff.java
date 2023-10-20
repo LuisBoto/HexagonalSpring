@@ -15,6 +15,7 @@ public class Tariff {
 	private int priority;
 
 	public Tariff(String priceList, String productId, String brandId, LocalDateTime startDate, LocalDateTime endDate, BigDecimal price, String currency, int priority) {
+		this.priceList = priceList;
 		this.productId = productId;
 		this.brandId = brandId;
 		this.startDate = startDate;
