@@ -1,54 +1,51 @@
 package com.luisboto.outbound.entity;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import com.luisboto.core.model.Tariff;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "tariff")
+@Table(name = "prices")
 public class TariffEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private String id;
+	private String priceList;
 
 	@Nonnull
 	private String productId;
-	
+
 	@Nonnull
 	private String brandId;
-	
+
 	@Nonnull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date startDate;
-	
+	private LocalDateTime startDate;
+
 	@Nonnull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date endDate;
-	
+	private LocalDateTime endDate;
+
 	@Nonnull
 	private BigDecimal price;
-	
+
 	@Nonnull
 	private String currency;
-	
+
 	@Nonnull
 	private int priority;
 
-	public TariffEntity(String id, String productId, String brandId, Date startDate, Date endDate, BigDecimal price,
-			String currency, int priority) {
+	public TariffEntity(String priceList, String productId, String brandId, LocalDateTime startDate, LocalDateTime endDate,
+			BigDecimal price, String currency, int priority) {
 		super();
-		this.id = id;
+		this.priceList = priceList;
 		this.productId = productId;
 		this.brandId = brandId;
 		this.startDate = startDate;
@@ -58,16 +55,50 @@ public class TariffEntity {
 		this.priority = priority;
 	}
 	
+	public TariffEntity() { }
+
+	public String getPriceList() {
+		return priceList;
+	}
+
+	public String getProductId() {
+		return productId;
+	}
+
+	public String getBrandId() {
+		return brandId;
+	}
+
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
+
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
+
 	static public Tariff toModel(TariffEntity tariffEntity) {
 		return new Tariff(
-				tariffEntity.productId,
-				tariffEntity.brandId,
-				tariffEntity.startDate,
-				tariffEntity.endDate,
-				tariffEntity.price,
-				tariffEntity.currency,
-				tariffEntity.priority
-			);
+				tariffEntity.getPriceList(), 
+				tariffEntity.getProductId(), 
+				tariffEntity.getBrandId(),
+				tariffEntity.getStartDate(), 
+				tariffEntity.getEndDate(), 
+				tariffEntity.getPrice(),
+				tariffEntity.getCurrency(), 
+				tariffEntity.getPriority());
 	}
-	
+
 }

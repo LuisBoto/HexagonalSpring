@@ -1,21 +1,23 @@
 package com.luisboto.inbound.dto;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import com.luisboto.core.model.Tariff;
 
 public class TariffDto {
 
+	private String priceList;
 	private String productId;
 	private String brandId;
-	private Date startDate;
-	private Date endDate;
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;
 	private BigDecimal price;
 	private String currency;
 	private int priority;
 
-	public TariffDto(String productId, String brandId, Date startDate, Date endDate, BigDecimal price, String currency, int priority) {
+	public TariffDto(String priceList, String productId, String brandId, LocalDateTime startDate, LocalDateTime endDate, BigDecimal price, String currency, int priority) {
+		this.priceList = priceList;
 		this.productId = productId;
 		this.brandId = brandId;
 		this.startDate = startDate;
@@ -25,6 +27,10 @@ public class TariffDto {
 		this.priority = priority;
 	}
 
+	public String getPriceList() {
+		return this.priceList;
+	}
+	
 	public String getProductId() {
 		return productId;
 	}
@@ -33,11 +39,11 @@ public class TariffDto {
 		return brandId;
 	}
 
-	public Date getStartDate() {
+	public LocalDateTime getStartDate() {
 		return startDate;
 	}
 
-	public Date getEndDate() {
+	public LocalDateTime getEndDate() {
 		return endDate;
 	}
 
@@ -55,6 +61,7 @@ public class TariffDto {
 	
 	public static TariffDto toDto(Tariff tariff) {
 		return new TariffDto(
+				tariff.getPriceList(),
 				tariff.getProductId(),
 				tariff.getBrandId(),
 				tariff.getStartDate(),

@@ -1,19 +1,20 @@
 package com.luisboto.core.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Tariff {
 
+	private String priceList;
 	private String productId;
 	private String brandId;
-	private Date startDate;
-	private Date endDate;
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;
 	private BigDecimal price;
 	private String currency;
 	private int priority;
 
-	public Tariff(String productId, String brandId, Date startDate, Date endDate, BigDecimal price, String currency, int priority) {
+	public Tariff(String priceList, String productId, String brandId, LocalDateTime startDate, LocalDateTime endDate, BigDecimal price, String currency, int priority) {
 		this.productId = productId;
 		this.brandId = brandId;
 		this.startDate = startDate;
@@ -21,6 +22,10 @@ public class Tariff {
 		this.price = price;
 		this.currency = currency;
 		this.priority = priority;
+	}
+	
+	public String getPriceList() {
+		return this.priceList;
 	}
 
 	public String getProductId() {
@@ -31,11 +36,11 @@ public class Tariff {
 		return brandId;
 	}
 
-	public Date getStartDate() {
+	public LocalDateTime getStartDate() {
 		return startDate;
 	}
 
-	public Date getEndDate() {
+	public LocalDateTime getEndDate() {
 		return endDate;
 	}
 
