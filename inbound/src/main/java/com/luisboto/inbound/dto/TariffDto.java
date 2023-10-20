@@ -13,18 +13,14 @@ public class TariffDto {
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
 	private BigDecimal price;
-	private String currency;
-	private int priority;
 
-	public TariffDto(String priceList, String productId, String brandId, LocalDateTime startDate, LocalDateTime endDate, BigDecimal price, String currency, int priority) {
+	public TariffDto(String priceList, String productId, String brandId, LocalDateTime startDate, LocalDateTime endDate, BigDecimal price) {
 		this.priceList = priceList;
 		this.productId = productId;
 		this.brandId = brandId;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.price = price;
-		this.currency = currency;
-		this.priority = priority;
 	}
 
 	public String getPriceList() {
@@ -51,14 +47,6 @@ public class TariffDto {
 		return price;
 	}
 
-	public String getCurrency() {
-		return currency;
-	}
-
-	public int getPriority() {
-		return priority;
-	}
-	
 	public static TariffDto toDto(Tariff tariff) {
 		return new TariffDto(
 				tariff.getPriceList(),
@@ -66,9 +54,7 @@ public class TariffDto {
 				tariff.getBrandId(),
 				tariff.getStartDate(),
 				tariff.getEndDate(),
-				tariff.getPrice(),
-				tariff.getCurrency(),
-				tariff.getPriority()
+				tariff.getPrice()
 				);
 	}
 

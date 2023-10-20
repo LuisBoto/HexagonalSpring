@@ -18,7 +18,7 @@ import jakarta.persistence.TemporalType;
 public class TariffEntity {
 
 	@Id
-	@Column
+	@Column(name = "id")
 	private String priceList;
 
 	@Nonnull
