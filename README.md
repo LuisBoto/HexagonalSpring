@@ -26,4 +26,4 @@ This project includes configured, ready to run e2e and integration testing depen
 
 The core, inbound, and outbound modules all contain some minor **unitary tests** using **Mockito**.
 
-The startup **hexagonalApplication** module contains **e2e tests** using **RestAssured**; and the **outbound** module also contains provider **integration tests** with the embedded H2 database.
+The startup **hexagonalApplication** module contains **e2e tests** using **RestAssured**; and the **outbound** module also contains provider **integration tests** against the embedded H2 database.
