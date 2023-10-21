@@ -2,6 +2,11 @@
 Simple Spring multimodule Maven project exposing an endpoint using hexagonal architecture.
 
 ## Compiling and Running
+To run the project right out of the box, navigate to the *hexagonalApplication/* module folder and run:
+```
+mvn spring-boot:run
+```
+
 Using the included maven wrapper, run the following command to generate a JAR file:
 ```
 ./mvnw clean package
