@@ -15,3 +15,6 @@ java -jar ./hexagonalApplication/target/hexagonalApplication-0.0.1.jar
 ## Project structure:
 The parent pom declares 4 modules: **inbound**, **outbound**, **core**, and the **hexagonalApplication** module. This last one contains the main class, e2e tests, and dependencies to the other modules just so that everything is propertly scanned and loaded upon startup. The core module does not depend on anything.
 The final module structure is the following:
+<p align="center">
+    <img src=".readme/moduleDiagram.png" alt="Module structure diagram"/>
+</p>
