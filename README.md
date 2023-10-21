@@ -18,3 +18,10 @@ The final module structure is the following:
 <p align="center">
     <img src=".readme/moduleDiagram.png" alt="Module structure diagram"/>
 </p>
+
+## Testing
+This project includes configured, ready to run e2e and integration testing dependencies. 
+
+The core, inbound, and outbound modules all contain some minor **unitary tests** using **Mockito**.
+
+The startup **hexagonalApplication** module contains **e2e tests** using **RestAssured**; and the **outbound** module also contains provider **integration tests** with the embedded H2 database.
