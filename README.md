@@ -7,7 +7,7 @@ To run the project right out of the box, navigate to the *hexagonalApplication/*
 mvn spring-boot:run
 ```
 
-Using the included maven wrapper, run the following command to generate a JAR file:
+Otherwise, using the included maven wrapper, run the following command to generate a JAR file:
 ```
 ./mvnw clean package
 ```
