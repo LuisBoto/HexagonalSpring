@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -68,6 +69,23 @@ public class TariffControllerE2ETest {
 					"startDate", equalTo(this.toFullFormatDateString(tariff.getStartDate())),
 					"endDate", equalTo(this.toFullFormatDateString(tariff.getEndDate())),
 					"price", equalTo(tariff.getPrice().floatValue())
+			);
+	}
+	
+	@Test
+	public void givenOldDateParameters_whenRequestTariff_thenNoTariffIsFound() {
+		given()
+			.contentType("application/json")
+			.queryParam("productId", "35455")
+			.queryParam("brandId", "1")
+			.queryParam("applicationDate", "2000-01-10T10:00")
+		.when()
+			.get(BASE_URL)
+		.then()
+			.statusCode(404)
+			.body(
+					"status", equalTo("NOT_FOUND"),
+					"message", equalTo("No active tariff found for product 35455 on brand 1 for date 2000-01-10T10:00")
 			);
 	}
 	
