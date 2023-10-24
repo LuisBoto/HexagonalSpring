@@ -10,9 +10,9 @@ import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import com.luisboto.core.adapter.TariffAdapter;
 import com.luisboto.core.exception.NoActiveTariffFoundException;
 import com.luisboto.core.model.Tariff;
+import com.luisboto.core.ports.out.TariffAdapter;
 
 public class TariffServiceTest {
 	

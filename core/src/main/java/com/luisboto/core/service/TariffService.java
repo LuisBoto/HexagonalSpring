@@ -4,12 +4,13 @@ import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
 
-import com.luisboto.core.adapter.TariffAdapter;
 import com.luisboto.core.exception.NoActiveTariffFoundException;
 import com.luisboto.core.model.Tariff;
+import com.luisboto.core.ports.in.TariffServicePortIn;
+import com.luisboto.core.ports.out.TariffAdapter;
 
 @Service
-public class TariffService {
+public class TariffService implements TariffServicePortIn {
 	
 	private TariffAdapter tariffAdapter;
 	

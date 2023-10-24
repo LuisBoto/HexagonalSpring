@@ -1,4 +1,4 @@
-package com.luisboto.core.adapter;
+package com.luisboto.core.ports.out;
 
 import java.time.LocalDateTime;
 
