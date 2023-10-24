@@ -3,8 +3,6 @@ package com.luisboto.outbound.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import com.luisboto.core.model.Tariff;
-
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -95,18 +93,6 @@ public class TariffEntity {
 
 	public int getPriority() {
 		return priority;
-	}
-
-	static public Tariff toModel(TariffEntity tariffEntity) {
-		return new Tariff(
-				tariffEntity.getPriceList(), 
-				tariffEntity.getProductId(), 
-				tariffEntity.getBrandId(),
-				tariffEntity.getStartDate(), 
-				tariffEntity.getEndDate(), 
-				tariffEntity.getPrice(),
-				tariffEntity.getCurrency(), 
-				tariffEntity.getPriority());
 	}
 
 }

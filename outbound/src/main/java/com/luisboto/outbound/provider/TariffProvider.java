@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.luisboto.core.model.Tariff;
 import com.luisboto.core.ports.out.TariffAdapter;
+import com.luisboto.outbound.entity.EntityMapper;
 import com.luisboto.outbound.entity.TariffEntity;
 import com.luisboto.outbound.repository.TariffRepository;
 
@@ -21,7 +22,7 @@ public class TariffProvider implements TariffAdapter {
 	@Override
 	public Tariff findActiveTariffByProductBrandAndDate(String productId, String brandId, LocalDateTime applicationDate) {
 		TariffEntity result = this.tariffRepository.findActiveTariffByProductBrandAndDate(productId, brandId, applicationDate);
-		return result == null ? null : TariffEntity.toModel(result);
+		return result == null ? null : EntityMapper.toModel(result);
 	}
 
 }

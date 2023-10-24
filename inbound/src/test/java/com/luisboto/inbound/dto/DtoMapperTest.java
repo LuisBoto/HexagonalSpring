@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 import com.luisboto.core.model.Tariff;
 
-public class TariffDtoTest {
+public class DtoMapperTest {
 	
 	@Test
 	public void givenTariffObject_whenConvertToDto_AllPropertiesAreCorrect() {
 		Tariff tariffModel = new Tariff("1", "35455", "10", LocalDateTime.now(), LocalDateTime.now(), BigDecimal.TEN, "EUR", 3);
-		TariffDto sut = TariffDto.toDto(tariffModel);
+		TariffDto sut = DtoMapper.toDto(tariffModel);
 		
 		assertEquals(tariffModel.getPriceList(), sut.getPriceList());
 		assertEquals(tariffModel.getProductId(), sut.getProductId());

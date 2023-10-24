@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.luisboto.core.ports.in.TariffServicePortIn;
+import com.luisboto.inbound.dto.DtoMapper;
 import com.luisboto.inbound.dto.TariffDto;
 
 @RestController
@@ -27,7 +28,7 @@ public class TariffController {
 			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime applicationDate) {
 
 		return ResponseEntity.ok(
-				TariffDto.toDto(
+				DtoMapper.toDto(
 						tariffService.getActiveTariff(productId, brandId, applicationDate)));
 
 	}
