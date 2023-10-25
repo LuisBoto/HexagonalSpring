@@ -14,10 +14,10 @@ import com.luisboto.core.exception.NoActiveTariffFoundException;
 import com.luisboto.core.model.Tariff;
 import com.luisboto.core.ports.out.TariffAdapter;
 
-public class TariffServiceTest {
+class TariffServiceTest {
 	
 	@Test
-	public void givenCorrectParameters_whenRequestActiveTariff_thenReturnsTariffModel() {
+	void givenCorrectParameters_whenRequestActiveTariff_thenReturnsTariffModel() {
 		LocalDateTime date = LocalDateTime.now();	
 		Tariff result = new Tariff("1", "2", "3", date, date, BigDecimal.TEN, "EUR", 1);
 		TariffAdapter mockTariffAdapter = Mockito.mock(TariffAdapter.class);
@@ -28,7 +28,7 @@ public class TariffServiceTest {
 	}
 	
 	@Test
-	public void givenNoTariff_whenRequestActiveTariff_thenThrowNoActiveTariffException() {
+	void givenNoTariff_whenRequestActiveTariff_thenThrowNoActiveTariffException() {
 		LocalDateTime date = LocalDateTime.now();	
 		TariffAdapter mockTariffAdapter = Mockito.mock(TariffAdapter.class);
 		when(mockTariffAdapter.findActiveTariffByProductBrandAndDate("10", "5", date)).thenReturn(null);

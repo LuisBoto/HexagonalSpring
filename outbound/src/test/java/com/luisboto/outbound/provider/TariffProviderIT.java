@@ -20,13 +20,13 @@ import com.luisboto.outbound.repository.TariffRepository;
 @ContextConfiguration(classes = { TariffProvider.class, TariffRepository.class, DataLoader.class})
 @EnableJpaRepositories(basePackages = {"com.luisboto.outbound.repository"})
 @EntityScan("com.luisboto.outbound.entity")
-public class TariffProviderIT {
+class TariffProviderIT {
 
 	@Autowired
 	private TariffProvider sut;
 
 	@Test
-	public void givenDateForSingleTariff_whenRequestActiveTariff_thenReturnsPriority0Tariff() {
+	void givenDateForSingleTariff_whenRequestActiveTariff_thenReturnsPriority0Tariff() {
 		Tariff result = sut.findActiveTariffByProductBrandAndDate("35455", "1", LocalDateTime.parse("2020-06-14T10:00:00"));
 		
 		assertEquals("1", result.getBrandId());
@@ -40,7 +40,7 @@ public class TariffProviderIT {
 	}
 	
 	@Test
-	public void givenNoTariffForParameters_whenRequestActiveTariff_thenReturnNull() {
+	void givenNoTariffForParameters_whenRequestActiveTariff_thenReturnNull() {
 		Tariff result = sut.findActiveTariffByProductBrandAndDate("35455", "1", LocalDateTime.parse("1999-11-30T00:00:00"));
 		
 		assertNull(result);

@@ -14,10 +14,10 @@ import com.luisboto.core.model.Tariff;
 import com.luisboto.outbound.entity.TariffEntity;
 import com.luisboto.outbound.repository.TariffRepository;
 
-public class TariffProviderTest {
+class TariffProviderTest {
 
 	@Test
-	public void givenCorrectParameters_whenRequestActiveTariff_thenProviderReturnsModel() {
+	void givenCorrectParameters_whenRequestActiveTariff_thenProviderReturnsModel() {
 		TariffEntity entity = new TariffEntity("1", "2", "3", LocalDateTime.now(), LocalDateTime.now(), BigDecimal.TEN,"EUR", 3);
 		LocalDateTime date = LocalDateTime.now();
 		TariffRepository repository = mock(TariffRepository.class);
@@ -37,7 +37,7 @@ public class TariffProviderTest {
 	}
 	
 	@Test
-	public void givenParametersForNoTariff_whenRequestActiveTariff_thenReturnsNull() {		
+	void givenParametersForNoTariff_whenRequestActiveTariff_thenReturnsNull() {		
 		LocalDateTime date = LocalDateTime.now();
 		TariffRepository repository = mock(TariffRepository.class);
 		when(repository.findActiveTariffByProductBrandAndDate("1", "2", date)).thenReturn(null);

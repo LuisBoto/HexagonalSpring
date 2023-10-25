@@ -20,7 +20,7 @@ import com.luisboto.inbound.dto.TariffDto;
 import io.restassured.RestAssured;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class TariffControllerE2ETest {
+class TariffControllerE2ETest {
 	
 	private static final String BASE_URL = "/api/v1/tariff";
 	private static final TariffDto TARIFF_1 = new TariffDto("1", "35455", "1", LocalDateTime.parse("2020-06-14T00:00:00"), LocalDateTime.parse("2020-12-31T23:59:59"), BigDecimal.valueOf(35.50));
@@ -33,7 +33,7 @@ public class TariffControllerE2ETest {
     int port;
 	
 	@BeforeEach
-	public void setUp() {
+	void setUp() {
 		RestAssured.port = port;
 		RestAssured.useRelaxedHTTPSValidation();
 		RestAssured.baseURI = "http://localhost:"+port;
@@ -52,7 +52,7 @@ public class TariffControllerE2ETest {
 	
 	@ParameterizedTest
 	@MethodSource("requestAndResponseTestParameters")
-	public void givenCertainDate_whenRequestActiveTariff_thenCorrectPriorityTariff(String productId, String brandId, String appliedDate, TariffDto tariff) {
+	void givenCertainDate_whenRequestActiveTariff_thenCorrectPriorityTariff(String productId, String brandId, String appliedDate, TariffDto tariff) {
 		given()
 			.contentType("application/json")
 			.queryParam("productId", productId)
@@ -73,7 +73,7 @@ public class TariffControllerE2ETest {
 	}
 	
 	@Test
-	public void givenOldDateParameters_whenRequestTariff_thenNoTariffIsFound() {
+	void givenOldDateParameters_whenRequestTariff_thenNoTariffIsFound() {
 		given()
 			.contentType("application/json")
 			.queryParam("productId", "35455")

@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 
 import com.luisboto.core.model.Tariff;
 
-public class EntityMapperTest {
+class EntityMapperTest {
 	
 	@Test
-	public void givenTariffEntity_whenConvertToModel_thenFieldsHaveCorrectValues() {
+	void givenTariffEntity_whenConvertToModel_thenFieldsHaveCorrectValues() {
 		TariffEntity entity = new TariffEntity("1", "2", "3", LocalDateTime.now(), LocalDateTime.now(), BigDecimal.TEN, "EUR", 3);
 		Tariff sut = EntityMapper.toModel(entity);
 		

@@ -17,7 +17,7 @@ import reactor.netty.http.client.HttpClient;
 
 @Configuration
 @Lazy(true)
-public class TestConfiguration {
+class TestConfiguration {
 
 	@LocalServerPort
 	int port;
