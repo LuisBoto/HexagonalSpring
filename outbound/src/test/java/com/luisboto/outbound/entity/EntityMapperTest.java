@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 
 import com.luisboto.core.model.Tariff;
+import com.luisboto.outbound.mapper.EntityMapper;
 
 class EntityMapperTest {
 	

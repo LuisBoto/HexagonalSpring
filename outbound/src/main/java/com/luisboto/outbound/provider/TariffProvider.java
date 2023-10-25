@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 import com.luisboto.core.model.Tariff;
 import com.luisboto.core.ports.out.TariffAdapter;
-import com.luisboto.outbound.entity.EntityMapper;
 import com.luisboto.outbound.entity.TariffEntity;
+import com.luisboto.outbound.mapper.EntityMapper;
 import com.luisboto.outbound.repository.TariffRepository;
 
 @Component

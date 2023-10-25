@@ -1,6 +1,7 @@
-package com.luisboto.outbound.entity;
+package com.luisboto.outbound.mapper;
 
 import com.luisboto.core.model.Tariff;
+import com.luisboto.outbound.entity.TariffEntity;
 
 public class EntityMapper {
 	
